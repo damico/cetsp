@@ -9,10 +9,13 @@ import javax.microedition.lcdui.Image;
 public class CetspUI extends Canvas {
 
 	private String[] zonas;
+	private String datetime;
 
-	public CetspUI(String[] zonas) {
+	public CetspUI(String[] zonas, String datetime) {
 		this.zonas = zonas;
-	}
+		this.datetime = datetime;
+	}	
+	
 
 	protected void paint(Graphics g) {
 		g.setColor(0xffffff);
@@ -28,7 +31,7 @@ public class CetspUI extends Canvas {
 		g.drawImage(image, (getWidth()/2), 10, Graphics.TOP | Graphics.HCENTER);
 		g.setColor(0x000000);
 
-
+		g.drawString(datetime, 30, 80, Graphics.TOP|Graphics.LEFT);
 		for(int i = 0; i<5; i++){
 			g.drawString(zonas[i], 30, (i*11)+100, Graphics.TOP|Graphics.LEFT);
 

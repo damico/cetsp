@@ -2,6 +2,8 @@ package org.jdamico.cetsp.jme;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.microedition.io.Connector;
 import javax.microedition.io.StreamConnection;
@@ -23,6 +25,25 @@ public class CETData {
 			if (c != null) {c.close();}
 		}
 		return b.toString();
+	}
+	public String getDateTime()
+	{
+		String retorno;
+				
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date());
+		int day = c.get(Calendar.DAY_OF_MONTH);
+		int month = c.get(Calendar.MONTH);
+		int year = c.get(Calendar.YEAR);
+		
+		int h = c.get(Calendar.HOUR_OF_DAY);
+		int m = c.get(Calendar.MINUTE);
+		int s = c.get(Calendar.SECOND);
+		
+		
+		retorno = "data:"+day+"/"+month+"/"+year+" ["+h+":"+m+":"+s+"]";
+		return retorno;
+		
 	}
 
 }
