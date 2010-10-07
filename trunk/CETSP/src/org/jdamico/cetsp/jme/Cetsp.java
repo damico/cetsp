@@ -16,13 +16,16 @@ public class Cetsp extends MIDlet implements CommandListener {
 	private Display display;
 	private Command cmdExit;
 	private String[] zonas;
+	private String datetime;
+	
 	public Cetsp() {
 		display = Display.getDisplay(this);
 		cmdExit = new Command("Exit", Command.SCREEN,1);
 		CETData cet = new CETData();
+		datetime = cet.getDateTime();
         String data = null;
         try {
-			data = cet.getViaStreamConnection("http://10.2.1.120/htdocs/NewVision/trabalho.php");
+			data = cet.getViaStreamConnection("http://www.dcon.com.br/cet/index.php");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -48,10 +51,9 @@ public class Cetsp extends MIDlet implements CommandListener {
 
 	}
 
-	protected void startApp() throws MIDletStateChangeException {
+	protected void startApp() throws MIDletStateChangeException {		
 		
-		
-		CetspUI ui = new CetspUI(zonas);
+		CetspUI ui = new CetspUI(zonas, datetime);
 		ui.addCommand(cmdExit);
 		ui.setCommandListener(this);
 		display.setCurrent(ui);
