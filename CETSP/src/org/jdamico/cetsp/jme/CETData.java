@@ -41,7 +41,7 @@ public class CETData {
 		int s = c.get(Calendar.SECOND);
 		
 		
-		retorno = "data:"+day+"/"+month+"/"+year+" ["+h+":"+m+":"+s+"]";
+		retorno = "Data: "+day+"/"+month+"/"+year+" ["+h+":"+m+":"+s+"]";
 		return retorno;
 		
 	}

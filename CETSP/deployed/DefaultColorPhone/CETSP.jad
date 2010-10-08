@@ -1,10 +1,11 @@
 MIDlet-1: Cetsp,/res/cetsplogo.png,org.jdamico.cetsp.jme.Cetsp
-MIDlet-On-Screen-Keypad: no
-MIDlet-Jar-URL: CETSP.jar
 MIDlet-Icon: /cetsplogo.png
-MicroEdition-Configuration: CLDC-1.1
-MIDlet-Version: 1.0.3
+MIDlet-Jar-Size: 15981
+MIDlet-Jar-URL: CETSP.jar
 MIDlet-Name: CETSP
+MIDlet-On-Screen-Keypad: no
 MIDlet-Vendor: Jose Damico + Alunos
+MIDlet-Version: 1.0.3
+MicroEdition-Configuration: CLDC-1.1
 MicroEdition-Profile: MIDP-1.0
 Nokia-MIDlet-On-Screen-Keypad: no
