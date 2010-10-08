@@ -1,6 +1,6 @@
 package org.jdamico.cetsp.jme;
 
-import gov.nist.core.StringTokenizer;
+
 
 import java.io.IOException;
 
@@ -27,16 +27,22 @@ public class Cetsp extends MIDlet implements CommandListener {
         try {
 			data = cet.getViaStreamConnection("http://www.dcon.com.br/cet/index.php");
 		} catch (IOException e) {
-			e.printStackTrace();
+			data = "Lentidao centro: N/A \n Lentidão leste: N/A \n Lentidão norte: N/A \n Lentidão oeste: N/A \n Lentidão sul: N/A \n";
 		}
 		zonas = new String[6];
 		int i=0;
-		StringTokenizer st = new StringTokenizer(data, '\n');
-		while(st.hasMoreChars()){
-			String e = st.nextToken();
-			zonas[i] = e;
-			System.out.println(">>> "+zonas[i]);
-			i++;
+		
+		int init = 0;
+		while(i<6){
+		for(int j=0; j<data.length(); j++){
+			if(data.charAt(j)=='\n'){
+				
+				zonas[i] = data.substring(init, j);
+				init = j;
+				i++;
+				
+			}
+		}	
 		}
 	}
 

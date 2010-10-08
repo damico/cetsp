@@ -23,6 +23,7 @@ public class CetspUI extends Canvas {
 		Image image = null;
 		try {
 			image = Image.createImage("/sp.png");
+			
 		} catch (IOException ex) {
 
 			g.drawString("Failed to load image!", 0, 0, Graphics.TOP | Graphics.LEFT);
@@ -33,7 +34,7 @@ public class CetspUI extends Canvas {
 
 		g.drawString(datetime, 30, 80, Graphics.TOP|Graphics.LEFT);
 		for(int i = 0; i<5; i++){
-			g.drawString(zonas[i], 30, (i*11)+100, Graphics.TOP|Graphics.LEFT);
+			g.drawString(zonas[i], 30, (i*24)+100, Graphics.TOP|Graphics.LEFT);
 
 		}
 
