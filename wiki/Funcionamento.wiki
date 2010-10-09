@@ -1,0 +1,106 @@
+#summary Trânsito em tempo real
+
+= Funcionamento =
+
+Add your content here.
+
+== Details ==
+
+  * CLDC = versão 1.0.0
+  * MIDP = versão 2.1
+  * IDE = Eclipse Pulsar Helios
+  * Testado em emulador
+  * Testado em celular SAMSUNG I8910 OMNIA HD
+  * Testado em celular NOKIA
+  * JME: Java Micro Edition
+  * Linguagen PHP
+  
+== PHP ==
+
+  {{{
+<?php
+$homepage = file_get_contents('http://cetsp1.cetsp.com.br/monitransmapa/agora/');
+//$total = count($homepage);
+$lines = explode("\n",$homepage);
+
+$total = count($lines);
+
+
+//echo($total."<br>");
+
+
+for($i=0; $i<$total; $i++){
+
+	//echo("===> ".$i."<br>");
+
+	if(ereg("CentroLentidao",$lines[$i])){
+		$inicio = 0;
+		$fim = 0;
+		$arr1 = str_split($lines[$i]);
+		$tarr = count($arr1);
+		for($j=1; $j<$tarr-2; $j++){
+			if($arr1[$j]=='>') $inicio = $j+1;
+			if($arr1[$j]=='<') $fim = $j-5;
+		}
+		$var = substr($lines[$i],$inicio, $fim);
+		$var = ereg_replace("</div>","",$var);
+		echo "Lentidao centro: ".$var."\n";
+	}	
+	if(ereg("LesteLentidao",$lines[$i])){
+		$inicio = 0;
+		$fim = 0;
+		$arr1 = str_split($lines[$i]);
+		$tarr = count($arr1);
+		for($j=1; $j<$tarr-2; $j++){
+			if($arr1[$j]=='>') $inicio = $j+1;
+			if($arr1[$j]=='<') $fim = $j-5;
+		}
+		$var = substr($lines[$i],$inicio, $fim);
+		$var = ereg_replace("</div>","",$var);
+		echo "Lentidão leste: ".$var."\n";
+	}
+	if(ereg("NorteLentidao",$lines[$i])){
+		$inicio = 0;
+		$fim = 0;
+		$arr1 = str_split($lines[$i]);
+		$tarr = count($arr1);
+		for($j=1; $j<$tarr-2; $j++){
+			if($arr1[$j]=='>') $inicio = $j+1;
+			if($arr1[$j]=='<') $fim = $j-5;
+		}
+		$var = substr($lines[$i],$inicio, $fim);
+		$var = ereg_replace("</div>","",$var);		
+		echo "Lentidão norte: ".$var."\n";
+	}
+	if(ereg("SulLentidao",$lines[$i])){
+		$inicio = 0;
+		$fim = 0;
+		$arr1 = str_split($lines[$i]);
+		$tarr = count($arr1);
+		for($j=1; $j<$tarr-2; $j++){
+			if($arr1[$j]=='>') $inicio = $j+1;
+			if($arr1[$j]=='<') $fim = $j-5;
+		}
+		$var = substr($lines[$i],$inicio, $fim);
+		$var = ereg_replace("</div>","",$var);		
+		echo "Lentidão sul: ".$var."\n";		
+	}
+	if(ereg("OesteLentidao",$lines[$i])){
+		$inicio = 0;
+		$fim = 0;
+		$arr1 = str_split($lines[$i]);
+		$tarr = count($arr1);
+		for($j=1; $j<$tarr-2; $j++){
+			if($arr1[$j]=='>') $inicio = $j+1;
+			if($arr1[$j]=='<') $fim = $j-5;
+		}
+		$var = substr($lines[$i],$inicio, $fim);
+		$var = ereg_replace("</div>","",$var);		
+		echo "Lentidão oeste: ".$var."\n";
+	}
+}
+
+?> 
+}}}    
+
+
